@@ -2,25 +2,17 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
-export const Header = () => {
+export const Top = () => {
     return (
-        <div className="bg-white">
+        <div className="bg-[#181414]">
             <TitleContent
                 mediaUrl="/media/intro.mp4"
                 mediaType="video"
-                subheading="Apaka sheeshable"
-                heading="Ang Katipunan"
+                subheading="ANG KATIPUNAN"
+                heading="K. K. K."
             >
-                <ExampleContent />
+                <Content />
             </TitleContent>
-            <TextParallaxContent
-                mediaUrl="https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                mediaType="image"
-                subheading="Quality"
-                heading="Never compromise."
-            >
-                <ExampleContent />
-            </TextParallaxContent>
         </div>
     );
 };
@@ -118,7 +110,7 @@ const StickyMedia = ({ mediaUrl, mediaType }) => {
                 />
             )}
             <motion.div
-                className="absolute inset-0 bg-neutral-950/70"
+                className="absolute inset-0 bg-[#181414/70]"
                 style={{
                     opacity,
                 }}
@@ -136,7 +128,7 @@ const OverlayCopy = ({ subheading, heading }) => {
     });
 
     const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-    const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [1, 0.7, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
     const color = useTransform(
         scrollYProgress,
         [0, 0.3, 1],
@@ -151,37 +143,38 @@ const OverlayCopy = ({ subheading, heading }) => {
                 color,
             }}
             ref={targetRef}
-            className="absolute left-0 top-0 flex h-[50vh] w-full flex-col items-center justify-center text-white"
+            className="absolute left-0 top-0 flex h-[50vh] w-full flex-col items-center justify-center "
         >
-            <p className="text-center text-5xl font-bold md:text-7xl">
+            <p className="text-center text-5xl font-bold md:text-9xl">
                 {heading}
             </p>
-            <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
+            <p className="font-serif mt-3 mb-5 text-center text-xl md:mb-4 md:text-3xl">
                 {subheading}
             </p>
         </motion.div>
     );
 };
 
-const ExampleContent = () => (
+const Content = () => (
     <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-        <h2 className="col-span-1 text-3xl font-bold md:col-span-4">
-            Additional content explaining the above card here
+        <h2 className="text-white col-span-1 text-3xl font-bold md:col-span-4">
+            Who are they?{' '}
         </h2>
         <div className="col-span-1 md:col-span-8">
-            <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-                blanditiis soluta eius quam modi aliquam quaerat odit deleniti
-                minima maiores voluptate est ut saepe accusantium maxime
-                doloremque nulla consectetur possimus.
+            <p className="mb-4 text-xl text-white md:text-2xl">
+                The Kataastaasan, Kagalanggalangang Katipunan ng mga Anak ng
+                Bayan (Supreme and Venerable Association of the Children of the
+                Nation), commonly known as the Katipunan, was a revolutionary
+                society founded in the Philippines in 1892. Its primary aim was
+                to gain independence from Spanish colonial rule through armed
+                revolt.
             </p>
-            <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusantium reiciendis blanditiis aliquam aut fugit sint.
+            <p className="mb-8 text-xl text-white md:text-2xl">
+                In a time of oppression and injustice, the Katipunan emerged as
+                a beacon of hope for the Filipino people. This secret society,
+                born in the heart of Manila, would grow to become the driving
+                force behind the Philippine Revolution of 1896.
             </p>
-            <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
-                Learn more <FiArrowUpRight className="inline" />
-            </button>
         </div>
     </div>
 );

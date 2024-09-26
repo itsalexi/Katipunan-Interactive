@@ -1,9 +1,11 @@
-import { Header } from '@/components/Header';
+import { Top } from '@/components/Header';
+import { Timeline } from '@/components/Timeline';
 
 export default function Home() {
     return (
         <div className="">
-            <Header />
+            <Top />
+            <Timeline />
         </div>
     );
 }
